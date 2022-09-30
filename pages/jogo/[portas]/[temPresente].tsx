@@ -1,10 +1,10 @@
 import styles from "../../../styles/Jogo.module.css"
-import { useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 import Porta from "../../../components/Porta"
 import { atualizarPortas, criarPortas } from "../../../functions/portas"
 import PortaModel from "../../../model/porta"
 import Link from "../../../node_modules/next/link"
-import { useRouter } from "../../../node_modules/next/router"
+import { useRouter } from "next/router"
 
 export default function jogo() {
 
