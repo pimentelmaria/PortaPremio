@@ -21,13 +21,15 @@ export default function Jogo() {
     const temPresenteValido = temPresenteUrl >= 1 && temPresenteUrl <= portasUrl
   
     setValido(qtdePortasValida && temPresenteValido)
-  }, [portas, Router.query.portas, Router.query.temPresente])
+  //}, [portas, Router.query.portas, Router.query.temPresente])
+  }, [portas])
 
   useEffect(() => {
     const portasUrl = +Router.query.portas
     const temPresenteUrl = +Router.query.temPresente
     setPortas(criarPortas(portasUrl, temPresenteUrl))
-  }, [Router?.query])
+  //}, [Router?.query])
+  })
 
   function renderizarPortas() {
     return valido && portas.map(porta => {
