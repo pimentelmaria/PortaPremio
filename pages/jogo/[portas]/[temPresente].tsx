@@ -4,30 +4,30 @@ import Porta from "../../../components/Porta"
 import { atualizarPortas, criarPortas } from "../../../functions/portas"
 import PortaModel from "../../../model/porta"
 import Link from "../../../node_modules/next/link"
-import { useRouter } from "next/router"
+import Router from "next/router"
 
-export default function jogo() {
+export default function Jogo() {
 
-  const router = useRouter()
+  //const router = useRouter()
 
   const [valido, setValido] = useState(false)
   const [portas, setPortas] = useState([])
 
   useEffect(() => {
-    const portasUrl = +router.query.portas
-    const temPresenteUrl = +router.query.temPresente
+    const portasUrl = +Router.query.portas
+    const temPresenteUrl = +Router.query.temPresente
 
     const qtdePortasValida = portasUrl >= 3 && portasUrl <= 100
     const temPresenteValido = temPresenteUrl >= 1 && temPresenteUrl <= portasUrl
   
     setValido(qtdePortasValida && temPresenteValido)
-  }, [portas, router.query.portas, router.query.temPresente])
+  }, [portas, Router.query.portas, Router.query.temPresente])
 
   useEffect(() => {
-    const portasUrl = +router.query.portas
-    const temPresenteUrl = +router.query.temPresente
+    const portasUrl = +Router.query.portas
+    const temPresenteUrl = +Router.query.temPresente
     setPortas(criarPortas(portasUrl, temPresenteUrl))
-  }, [router?.query])
+  }, [Router?.query])
 
   function renderizarPortas() {
     return valido && portas.map(porta => {
